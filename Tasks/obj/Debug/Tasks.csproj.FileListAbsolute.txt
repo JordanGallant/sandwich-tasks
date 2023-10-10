@@ -7,3 +7,4 @@ C:\Users\Jordan\Desktop\2023\sandwich\Tasks\bin\Debug\Tasks.exe
 C:\Users\Jordan\Desktop\2023\sandwich\Tasks\bin\Debug\Tasks.pdb
 C:\Users\Jordan\Desktop\2023\sandwich\Tasks\obj\Debug\Tasks.exe
 C:\Users\Jordan\Desktop\2023\sandwich\Tasks\obj\Debug\Tasks.pdb
+C:\Users\Jordan\Desktop\2023\sandwich\Tasks\obj\Debug\Tasks.Menu.resources
