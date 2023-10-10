@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace sandwich_tasks
+namespace sandwich_finance
 {
-    public partial class Task1 : Form
+    public partial class Form1 : Form
     {
-        public Task1()
+        public Form1()
         {
             InitializeComponent();
-        }
-        //testing
-        private void Task1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
