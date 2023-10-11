@@ -9,17 +9,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Timers;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace Tasks
 {
     public partial class Task1 : Form
         
     {
-        private int countdownValue;
+        
         public Task1()
         {
             InitializeComponent();
         }
+        private int countdownValue = 0;
+        private int stepNumber = 0;
+
 
         private void Task1_Load(object sender, EventArgs e)
         {
@@ -31,7 +36,9 @@ namespace Tasks
             if (int.TryParse(textBox1.Text, out int countdownValue) && int.TryParse(textBox2.Text, out int stepNumber))
             {
 
-                richTextBox1.Text = countdownValue.ToString();
+                richTextBox1.Text = $"Countdown: {countdownValue.ToString()}" + " " +"Countdown" + "\n" ;
+                countdownValue = int.Parse(textBox1.Text);
+                stepNumber = int.Parse(textBox2.Text);
                 timer1.Start();
 
 
@@ -58,11 +65,10 @@ namespace Tasks
             if (int.TryParse(textBox1.Text, out int countdownNumber) && int.TryParse(textBox2.Text, out int stepNumber))
             {
                 // Start the countdown
-                for (int i = countdownNumber; i >= 0; i--)
+                for (int i = countdownNumber; i >= 0; i -= stepNumber)
                 {
                     richTextBox1.Text += $"Countdown: {i}" + " " +  "Countdown" + "\n";
-                    Thread.Sleep(stepNumber * 1000);
-                    richTextBox1.Text += $"Wating {stepNumber} seconds" + "\n";
+                    richTextBox1.Text += $"Step is {stepNumber}" + "\n";
 
                 }
             }
@@ -81,22 +87,21 @@ namespace Tasks
         private void button3_Click(object sender, EventArgs e)
         {
             richTextBox1.Clear();
+            timer1.Stop();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            while (this.countdownValue != 0)
+            if (countdownValue > 0)
             {
-                int countdownValue = int.Parse(textBox1.Text);
-                countdownValue = countdownValue - 1;
-                richTextBox1.Text = countdownValue.ToString();
+                int output = countdownValue - stepNumber;
+                richTextBox1.Text += $"Countdown: {output}" + " seconds" +"\n";
+                richTextBox1.Text += $"Step is {stepNumber}" + "\n";
             }
-            
-
-            if (countdownValue <= 0)
+            else
             {
-                timer1.Enabled = false;
-                MessageBox.Show("Countdown complete!");
+                timer1.Stop();
+                richTextBox1.Text = "Time is up!";
             }
 
         }
