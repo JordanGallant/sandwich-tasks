@@ -33,12 +33,13 @@ namespace Tasks
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             if (int.TryParse(textBox1.Text, out int countdownValue) && int.TryParse(textBox2.Text, out int stepNumber))
             {
 
-                richTextBox1.Text = $"Countdown: {countdownValue.ToString()}" + " " +"Countdown" + "\n" ;
+                richTextBox1.Text = countdownValue.ToString() ;
                 countdownValue = int.Parse(textBox1.Text);
-                stepNumber = int.Parse(textBox2.Text);
+                
                 timer1.Start();
 
 
@@ -92,17 +93,17 @@ namespace Tasks
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (countdownValue > 0)
+            countdownValue = int.Parse(textBox1.Text);
+            stepNumber = int.Parse(textBox2.Text);
+
+            while (countdownValue > 0)
             {
-                int output = countdownValue - stepNumber;
-                richTextBox1.Text += $"Countdown: {output}" + " seconds" +"\n";
-                richTextBox1.Text += $"Step is {stepNumber}" + "\n";
+                countdownValue--;
+                richTextBox1.Text += $" Count Down: {countdownValue}" + " seconds" + "\n";
+                richTextBox1.Text += $"The step is {stepNumber}" + "\n";
             }
-            else
-            {
-                timer1.Stop();
-                richTextBox1.Text = "Time is up!";
-            }
+            timer1.Stop();
+            
 
         }
     }
