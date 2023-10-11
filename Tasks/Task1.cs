@@ -37,7 +37,7 @@ namespace Tasks
             if (int.TryParse(textBox1.Text, out int countdownValue) && int.TryParse(textBox2.Text, out int stepNumber))
             {
 
-                richTextBox1.Text = countdownValue.ToString() ;
+                richTextBox1.Text = $" Countdown:{countdownValue.ToString()} seconds \n" ;
                 countdownValue = int.Parse(textBox1.Text);
                 
                 timer1.Start();
@@ -61,7 +61,7 @@ namespace Tasks
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
             if (int.TryParse(textBox1.Text, out int countdownNumber) && int.TryParse(textBox2.Text, out int stepNumber))
             {
@@ -69,7 +69,9 @@ namespace Tasks
                 for (int i = countdownNumber; i >= 0; i -= stepNumber)
                 {
                     richTextBox1.Text += $"Countdown: {i}" + " " +  "Countdown" + "\n";
-                    richTextBox1.Text += $"Step is {stepNumber}" + "\n";
+                    richTextBox1.Text += $"Wating {stepNumber} seconds " + "\n";
+                    await Task.Delay(stepNumber*1000);
+                    
 
                 }
             }
@@ -91,16 +93,18 @@ namespace Tasks
             timer1.Stop();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private async void timer1_Tick(object sender, EventArgs e)
         {
             countdownValue = int.Parse(textBox1.Text);
             stepNumber = int.Parse(textBox2.Text);
 
             while (countdownValue > 0)
             {
-                countdownValue--;
+                countdownValue-= stepNumber;
                 richTextBox1.Text += $" Count Down: {countdownValue}" + " seconds" + "\n";
-                richTextBox1.Text += $"The step is {stepNumber}" + "\n";
+                richTextBox1.Text += $"Waiting {stepNumber} seconds" + "\n";
+                await Task.Delay(stepNumber*1000);
+                
             }
             timer1.Stop();
             
