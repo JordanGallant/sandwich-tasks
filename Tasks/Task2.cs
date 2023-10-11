@@ -14,11 +14,14 @@ namespace Tasks
     {
 
         class Person {
+
+            //declaring public variables for the person object
             public string Name { get; set; }   
             public string Surname { get; set; }
             public int Age { get; set; }
             public string Gender { get; set; }
 
+            //person object constructor
             public Person(string name, string surname, int age, string gender)
             {
                 Name = name;
