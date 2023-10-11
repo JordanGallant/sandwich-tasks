@@ -12,9 +12,33 @@ namespace Tasks
 {
     public partial class Task2 : Form
     {
+
+        class Person {
+            public string Name { get; set; }   
+            public string Surname { get; set; }
+            public int Age { get; set; }
+            public string Gender { get; set; }
+
+            public Person(string name, string surname, int age, string gender)
+            {
+                Name = name;
+                Surname = surname; 
+                Age = age;
+                Gender = gender;
+            }
+
+        
+        }
+
+
         public Task2()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

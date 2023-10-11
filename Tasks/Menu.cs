@@ -33,5 +33,12 @@ namespace Tasks
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            Task2 task2 = new Task2();
+            task2.Show(); 
+        }
     }
 }
