@@ -32,14 +32,14 @@ namespace Tasks
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var numberRegex = new Regex(@"^(10|[1-9])$"); //regular expressions @ - treat expression as is -  \d+ numbers 1-10 and no letters
+            var numberRegex = new Regex(@"\d+"); //regular expressions @ - treat expression as is -  \d+ numbers 1-10 and no letters
             var matches = numberRegex.Matches(textBox1.Text); // creates an array of all integers from 1-10
 
             foreach ( var match in matches ) //looping through the matches array
             {
                 if (int.TryParse(match.ToString() , out int num) && num >= 1 && num <= 10)
                 {
-                    CalculationEngine engine = new CalculationEngine();
+                    CalculationEngine engine = new CalculationEngine(); //classic Jace
                     double result = engine.Calculate(textBox1.Text);
                     MessageBox.Show("Result: " + result);
 
