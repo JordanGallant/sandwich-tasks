@@ -30,17 +30,17 @@ namespace Tasks
 
         private void button1_Click(object sender, EventArgs e)
         {
+            /* create empty array, break string up push into array, valate if between 1-10, is an integer (Account for whitespace)
+             * otherwise break loop and message show reason for fail
+             * 
+             * 
+             */
 
-            if (Enumerable.Range(1, 10).Contains(int.Parse(textBox1.Text)))
-            {
-                CalculationEngine engine = new CalculationEngine();
+
+            CalculationEngine engine = new CalculationEngine();
                 double result = engine.Calculate(textBox1.Text);
                 MessageBox.Show("Result: " + result);
-            }
-            else
-            {
-                MessageBox.Show("Please enter a valid integer between 1 and 10");
-            }
+            
         }
     }
 }
