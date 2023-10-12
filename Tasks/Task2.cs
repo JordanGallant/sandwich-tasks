@@ -113,10 +113,11 @@ namespace Tasks
         }
            static void DisplayFamilyTree(TreeNode node, int depth)
         {
+            //shows the level of the tree using dashes (Not my code)
             MessageBox.Show(new string('-', depth*4)+ node.Data.Name + ", " + node.Data.Surname + ", " + node.Data.Age + ", " + node.Data.Gender); // node.Data represents the person object of that node
             foreach (var child in node.Children)  // O(n) linear time complexity -  looping through each child node (parent) 
             { 
-                DisplayFamilyTree(child, depth+1); //recursion 
+                DisplayFamilyTree(child, depth+1); //recursion (Scary)
                 // this will display each child node (parent) 
             }
         
