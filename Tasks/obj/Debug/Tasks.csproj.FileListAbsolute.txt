@@ -10,3 +10,6 @@ C:\Users\Jordan\Desktop\2023\sandwich\Tasks\obj\Debug\Tasks.pdb
 C:\Users\Jordan\Desktop\2023\sandwich\Tasks\obj\Debug\Tasks.Menu.resources
 C:\Users\Jordan\Desktop\2023\sandwich\Tasks\obj\Debug\Tasks.Task1.resources
 C:\Users\Jordan\Desktop\2023\sandwich\Tasks\obj\Debug\Person.resources
+C:\Users\Jordan\Desktop\2023\sandwich\Tasks\bin\Debug\Jace.dll
+C:\Users\Jordan\Desktop\2023\sandwich\Tasks\obj\Debug\Tasks.Task3.resources
+C:\Users\Jordan\Desktop\2023\sandwich\Tasks\obj\Debug\Tasks.csproj.CopyComplete

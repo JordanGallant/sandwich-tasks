@@ -40,5 +40,12 @@ namespace Tasks
             Task2 task2 = new Task2();
             task2.Show(); 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Task3 task3 = new Task3();
+            task3.Show();
+
+        }
     }
 }
