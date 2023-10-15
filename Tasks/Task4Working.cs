@@ -30,23 +30,20 @@ namespace Tasks
 
         }
 
-        static void OrderData(string jsonData, RichTextBox richTextBox)
+        private static void OrderData(string jsonData, RichTextBox richTextBox)
         {
             
-            string output = "";
             List<OrderDatas> orderDataList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<OrderDatas>>(jsonData);
 
             foreach (var order in orderDataList)
             {
-                output += $"Symbol: {order.symbol}, Buy or Sell: {order.buyOrSell}, Timestamp: {order.timestamp}, Size: {order.size}, Price: {order.price}" + "\n";
+                richTextBox.Text += $"Symbol: {order.symbol}, Buy or Sell: {order.buyOrSell}, Timestamp: {order.timestamp}, Size: {order.size}, Price: {order.price}" + "\n";
+         
                 
             }
 
             
-            richTextBox.Invoke((MethodInvoker)(() =>
-            {
-                richTextBox.AppendText(output);
-            }));
+           
         }
 
 
@@ -54,18 +51,18 @@ namespace Tasks
         {
             using (HttpClient client = new HttpClient())
             {
-                // Send a GET request to the API endpoint
+                
                 HttpResponseMessage response = await client.GetAsync(apiUrl);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    // Read the response content as a string
+                    
                     string responseBody = await response.Content.ReadAsStringAsync();
                     return responseBody;
                 }
                 else
                 {
-                    // Handle the error if the request was not successful
+                    
                     throw new HttpRequestException($"Error: {response.StatusCode} - {response.ReasonPhrase}");
                 }
             }
@@ -83,19 +80,19 @@ namespace Tasks
 
             try
             {
-                // Call the GetOrderBook function to retrieve data
+                
                 string orderBookData = await GetOrderBook(apiUrl);
 
 
                 OrderData(orderBookData, richTextBox1);
-                // You can parse and process the order book data here
+                
                 richTextBox1.Text = "Order Book Data:";
-                //richTextBox1.Text += orderBookData;
+               // richTextBox1.Text += orderBookData;
              
             }
             catch (Exception ex)
             {
-                // Handle any exceptions that may occur during the request
+               
                 Console.WriteLine($"Exception: {ex.Message}");
             }
         }
