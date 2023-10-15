@@ -49,3 +49,4 @@ C:\Users\Jordan\Desktop\2023\sandwich\sandwich-tasks\Tasks\bin\Debug\System.Thre
 C:\Users\Jordan\Desktop\2023\sandwich\sandwich-tasks\Tasks\bin\Debug\System.ValueTuple.xml
 C:\Users\Jordan\Desktop\2023\sandwich\sandwich-tasks\Tasks\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Jordan\Desktop\2023\sandwich\sandwich-tasks\Tasks\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jordan\Desktop\2023\sandwich\sandwich-tasks\Tasks\obj\Debug\Tasks.Task4Working.resources

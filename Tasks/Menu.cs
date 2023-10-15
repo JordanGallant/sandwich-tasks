@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Tasks
 {
@@ -52,6 +53,12 @@ namespace Tasks
         {
             Task4 task4 = new Task4();
             task4.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Task4Working test = new Task4Working();
+            test.Show();
         }
     }
 }
