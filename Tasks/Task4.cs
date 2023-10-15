@@ -35,8 +35,8 @@ namespace Tasks
     {
 
         private const string domain = "https://testnet.bitmex.com";
-        private string apiKey; // tried using user-secrets to avoid having the API keys in 
-        private string apiSecret; // tried using user-secrets to avoid having the API keys in
+        public string apiKey; // tried using user-secrets to avoid having the API keys in 
+        public string apiSecret; // tried using user-secrets to avoid having the API keys in
         private int rateLimit;
 
         public BitMEXApi()
@@ -145,21 +145,13 @@ namespace Tasks
         public List<OrderBookItem> GetOrderBook(string symbol, int depth)
         {
             var param = new Dictionary<string, string>();
+            Console.WriteLine(param);
             param["symbol"] = symbol;
             param["depth"] = depth.ToString();
             string res = Query("GET", "/orderBook", param);
-            var options = new System.Text.Json.JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-
-            try
-            {
-                return JsonSerializer.Deserialize<List<OrderBookItem>>(res, options);
-            }
-            catch (JsonException ex) {
-                Console.WriteLine($"JSON Deserialization Error: {ex.Message}");
-                return new List<OrderBookItem>(); // Return an empty list or handle the error as needed.
-            }
-
-
+            Console.WriteLine(res);
+            List<OrderBookItem> orderBookList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<OrderBookItem>>(res);
+            return orderBookList;
         }
         private byte[] hmacsha256(byte[] keyByte, byte[] messageBytes)
         {
