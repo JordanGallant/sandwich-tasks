@@ -76,6 +76,9 @@ namespace Tasks
 
         private async void button1_Click(object sender, EventArgs e)
         {
+            richTextBox1.Text += "Order Book Data:";
+            richTextBox1.Clear();
+
             string apiUrl = "https://www.bitmex.com/api/v1/orderBook/L2?symbol=XBT&depth=25";
 
             try
@@ -86,7 +89,7 @@ namespace Tasks
 
                 OrderData(orderBookData, richTextBox1);
                 
-                richTextBox1.Text = "Order Book Data:";
+                
                // richTextBox1.Text += orderBookData;
              
             }
