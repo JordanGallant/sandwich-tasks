@@ -17,7 +17,22 @@ namespace Tasks
     public partial class Task1 : Form
         
     {
-        
+
+        public bool ValidateTextBoxValues(string textBox1Text, string textBox2Text, out int countdownNumber, out int stepNumber) //trying to implement the user valadation as a method
+        {
+            countdownNumber = 0;
+            stepNumber = 0;
+            if (int.TryParse(textBox1Text, out countdownNumber) && int.TryParse(textBox2Text, out stepNumber) && countdownNumber > stepNumber)
+            {
+                return true;
+            }
+            else
+            {
+                richTextBox1.Text = "Please enter a valid number." + " " + "Invalid Input Make sure all fields have been filled in \n Please note that the step number cannot be higher than the input number";
+                return false;
+            }
+        }
+
         public Task1()
         {
             InitializeComponent();
@@ -35,7 +50,7 @@ namespace Tasks
         private void button1_Click(object sender, EventArgs e)
         {
             
-            if (int.TryParse(textBox1.Text, out int countdownValue) && int.TryParse(textBox2.Text, out int stepNumber))
+            if (int.TryParse(textBox1.Text, out int countdownValue) && int.TryParse(textBox2.Text, out int stepNumber) && int.Parse(textBox1.Text) > int.Parse(textBox2.Text))
             {
                 //base value for text box on button click
                 richTextBox1.Text = $" Countdown:{countdownValue.ToString()} seconds \n" ;
@@ -49,7 +64,7 @@ namespace Tasks
             else
             {
                 //data valadation
-                richTextBox1.Text = "Please enter a valid number."+ " " + "Invalid Input Make sure all fields have been filled in" ;
+                richTextBox1.Text = "Please enter a valid number."+ " " + "Invalid Input Make sure all fields have been filled in \n Please note that the step number cannot be higher than the input number" ;
             }
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -66,7 +81,7 @@ namespace Tasks
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(textBox1.Text, out int countdownNumber) && int.TryParse(textBox2.Text, out int stepNumber))
+            if (int.TryParse(textBox1.Text, out int countdownNumber) && int.TryParse(textBox2.Text, out int stepNumber) && int.Parse(textBox1.Text) > int.Parse(textBox2.Text))
             {
                 // Loop for the method that isnt using a timer
                 for (int i = countdownNumber; i >= 0; i -= stepNumber)
@@ -82,7 +97,7 @@ namespace Tasks
             }
             else
             {
-                richTextBox1.Text = "Please enter a valid number."+ " " + "Invalid Input Make sure all fields have been filled in";
+                richTextBox1.Text = "Please enter a valid number."+ " " + "Invalid Input Make sure all fields have been filled in \n Please note that the step number cannot be higher than the input number";
             }
 
         }
