@@ -8,59 +8,63 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-public class Person
-{
+//class inside name space.
 
-    //declaring public variables for the person object that will be stored in a single tree node.
-    public string Name { get; set; }
-    public string Surname { get; set; }
-    public int Age { get; set; }
-    public string Gender { get; set; }
-
-
-
-    //person object constructor
-    public Person(string name, string surname, int age, string gender)
-    {
-        Name = name;
-        Surname = surname;
-        Age = age;
-        Gender = gender;
-    }
-
-
-}
-
-class TreeNode
-
-{
-    //Data of the person object that will be stored in each node, name age, gender etc.
-    public Person Data { get; set; }
-    //a list of children will also be stored in each node initialized as an empty array.
-    public List<TreeNode> Children { get; set; }
-
-    //tree node constructor 
-    public TreeNode(Person data)
-    {
-        Data = data;
-        Children = new List<TreeNode>();
-    }
-
-    //this method adds a new child node using the built in array method add.
-    public void AddChild(TreeNode child)
-    {
-        Children.Add(child);
-    }
-    //this method removes a new child node using the built in array method add.
-    public void RemoveChild(TreeNode child)
-    {
-        Children.Remove(child);
-    }
-}
 namespace Tasks
-{
 
-    
+
+{
+    public class Person
+    {
+
+        //declaring public variables for the person object that will be stored in a single tree node.
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public int Age { get; set; }
+        public string Gender { get; set; }
+
+
+
+        //person object constructor
+        public Person(string name, string surname, int age, string gender)
+        {
+            Name = name;
+            Surname = surname;
+            Age = age;
+            Gender = gender;
+        }
+
+
+    }
+
+    class TreeNode
+
+    {
+        //Data of the person object that will be stored in each node, name age, gender etc.
+        public Person Data { get; set; }
+        //a list of children will also be stored in each node initialized as an empty array.
+        public List<TreeNode> Children { get; set; }
+
+        //tree node constructor 
+        public TreeNode(Person data)
+        {
+            Data = data;
+            Children = new List<TreeNode>();
+        }
+
+        //this method adds a new child node using the built in array method add.
+        public void AddChild(TreeNode child)
+        {
+            Children.Add(child);
+        }
+        //this method removes a new child node using the built in array method add.
+        public void RemoveChild(TreeNode child)
+        {
+            Children.Remove(child);
+        }
+    }
+
+
     public partial class Task2 : Form
     {
         /* Explination:
